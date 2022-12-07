@@ -40,7 +40,7 @@
             "metadata": {
                 "description": "The location of Cloud Katana scripts and configs to deploy the serverless application"
             },
-            "defaultValue": "https://raw.githubusercontent.com/Azure/Cloud-Katana/feature/hybrid-worker-lab/"
+            "defaultValue": "https://raw.githubusercontent.com/securesean/Cloud-Katana/feature/hybrid-worker-lab/"
         },
         "_artifactsLocationSasToken": {
             "type": "securestring",
