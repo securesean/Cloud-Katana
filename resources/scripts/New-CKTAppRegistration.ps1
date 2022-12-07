@@ -151,7 +151,7 @@ function New-CKTAppRegistration {
             "Body"    = $body | ConvertTo-Json -Compress -Depth 20
         }
         $registeredApp = Invoke-RestMethod @params
-        Start-Sleep -s 15
+        Start-Sleep -s 30
     }
     Write-Host $registeredApp
     $ScriptOutputs['appName'] = $Name
@@ -214,9 +214,11 @@ function New-CKTAppRegistration {
         }
         $appSP = Invoke-RestMethod @params
         # Sleep
-        Start-Sleep -s 15
+        Start-Sleep -s 30
     }
+    Write-Host "appSP"
     Write-Host $appSP
+    Write-Host $appSP.Id
 
     #Add credentials to application
     if ($AddSecret) {
@@ -275,7 +277,7 @@ function New-CKTAppRegistration {
 
         Invoke-RestMethod @params
         # Sleep
-        Start-Sleep -s 15
+        Start-Sleep -s 60
     }
 
     if($AssignAppRoleToUser){
@@ -288,7 +290,9 @@ function New-CKTAppRegistration {
             "Headers" = $Headers
         }
         $principalId = (Invoke-RestMethod @params).Id
-
+        
+        Start-Sleep -s 60
+        Write-Host "        [>>] Got: $principalId "
         Write-Host "    [>>] Adding user to application.."
         $body = @{
             appRoleId = [Guid]::Empty.Guid
